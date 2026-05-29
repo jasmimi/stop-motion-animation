@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A static browser-based stop motion studio for extracting video frames and compiling frame ZIPs into MP4 animations."
+    />
+    <title>Stop Motion Studio</title>
+  </head>
+  <body>
+    <div class="stage-grain" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="masthead">
+        <div class="brand-lockup">
+          <span class="brand-mark"><i data-lucide="clapperboard"></i></span>
+          <div>
+            <p class="eyebrow">Browser workshop</p>
+            <h1>Stop Motion Studio</h1>
+          </div>
+        </div>
+        <p class="masthead-note">Private, local, static.</p>
+      </header>
+
+      <section class="tool-grid" aria-label="Stop motion tools">
+        <article class="tool-panel tool-panel--frames">
+          <div class="panel-header">
+            <span class="tool-badge"><i data-lucide="scissors"></i></span>
+            <div>
+              <p class="panel-kicker">Extract</p>
+              <h2 id="extract-title">Video to Frames</h2>
+            </div>
+          </div>
+
+          <form id="extract-form" class="control-stack" aria-labelledby="extract-title">
+            <label class="file-picker" for="video-input">
+              <input id="video-input" type="file" accept="video/*" />
+              <span class="file-picker-icon"><i data-lucide="file-video"></i></span>
+              <span id="video-file-name" class="file-picker-label">Choose video</span>
+            </label>
+
+            <label class="number-field" for="extract-fps">
+              <span>FPS</span>
+              <input id="extract-fps" type="number" inputmode="numeric" min="1" step="1" value="12" />
+            </label>
+
+            <button id="extract-submit" class="action-button" type="submit">
+              <i data-lucide="images"></i>
+              <span>Generate Frames</span>
+            </button>
+          </form>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <span id="extract-progress" class="progress-bar"></span>
+          </div>
+          <p id="extract-status" class="status-line" aria-live="polite">Ready</p>
+          <a id="frames-download" class="download-button is-hidden" href="#" download="stop-motion-frames.zip">
+            <i data-lucide="download"></i>
+            <span>Download ZIP</span>
+          </a>
+        </article>
+
+        <article class="tool-panel tool-panel--video">
+          <div class="panel-header">
+            <span class="tool-badge"><i data-lucide="film"></i></span>
+            <div>
+              <p class="panel-kicker">Compile</p>
+              <h2 id="compile-title">Frames to MP4</h2>
+            </div>
+          </div>
+
+          <form id="compile-form" class="control-stack" aria-labelledby="compile-title">
+            <label class="file-picker" for="zip-input">
+              <input id="zip-input" type="file" accept=".zip,application/zip,application/x-zip-compressed" />
+              <span class="file-picker-icon"><i data-lucide="file-archive"></i></span>
+              <span id="zip-file-name" class="file-picker-label">Choose ZIP</span>
+            </label>
+
+            <label class="number-field" for="compile-fps">
+              <span>FPS</span>
+              <input id="compile-fps" type="number" inputmode="numeric" min="1" step="1" value="12" />
+            </label>
+
+            <button id="compile-submit" class="action-button" type="submit">
+              <i data-lucide="video"></i>
+              <span>Create MP4</span>
+            </button>
+          </form>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <span id="compile-progress" class="progress-bar"></span>
+          </div>
+          <p id="compile-status" class="status-line" aria-live="polite">Ready</p>
+          <video id="video-preview" class="video-preview is-hidden" controls playsinline></video>
+          <a id="mp4-download" class="download-button is-hidden" href="#" download="stop-motion.mp4">
+            <i data-lucide="download"></i>
+            <span>Download MP4</span>
+          </a>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

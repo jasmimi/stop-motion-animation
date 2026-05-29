@@ -1,0 +1,455 @@
+@font-face {
+  font-family: StudioMono;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Courier New"),
+    local("Courier");
+}
+
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #efe1c7;
+  color: #231d1b;
+  --paper: #fff5df;
+  --paper-deep: #ecd4af;
+  --ink: #211b1a;
+  --muted-ink: #6d5f54;
+  --teal: #126f72;
+  --teal-dark: #0a4b4e;
+  --coral: #d95b43;
+  --ochre: #d79f36;
+  --shadow: rgba(35, 29, 27, 0.22);
+  --line: rgba(35, 29, 27, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(rgba(239, 225, 199, 0.2), rgba(239, 225, 199, 0.82)),
+    url("./assets/retro-stop-motion-bg.png") center / cover fixed,
+    #efe1c7;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.stage-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(217, 91, 67, 0.16), transparent 18rem),
+    radial-gradient(circle at 88% 72%, rgba(18, 111, 114, 0.13), transparent 19rem),
+    repeating-linear-gradient(90deg, rgba(35, 29, 27, 0.08) 0 2px, transparent 2px 40px);
+  mix-blend-mode: multiply;
+}
+
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 36px 0 48px;
+}
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-block-end: 28px;
+  padding-block: 10px 18px;
+  border-block-end: 3px solid var(--ink);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark,
+.tool-badge {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  inline-size: 58px;
+  block-size: 58px;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  color: var(--paper);
+  background: var(--coral);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+.brand-mark svg,
+.tool-badge svg,
+.action-button svg,
+.download-button svg,
+.file-picker svg {
+  inline-size: 21px;
+  block-size: 21px;
+  stroke-width: 2.3;
+}
+
+.eyebrow,
+.panel-kicker {
+  margin: 0;
+  font-family: StudioMono, "Courier New", monospace;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+}
+
+h1,
+h2 {
+  margin: 0;
+  line-height: 1;
+  color: var(--ink);
+}
+
+h1 {
+  max-width: 11ch;
+  font-size: 5.6rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+.masthead-note {
+  margin: 0;
+  padding: 9px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--paper);
+  background: var(--teal);
+  font-family: StudioMono, "Courier New", monospace;
+  font-size: 0.84rem;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.tool-panel {
+  position: relative;
+  min-width: 0;
+  padding: 22px;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.12)),
+    var(--paper);
+  box-shadow: 8px 8px 0 var(--ink), 0 18px 42px var(--shadow);
+  overflow: hidden;
+}
+
+.tool-panel::before,
+.tool-panel::after {
+  content: "";
+  position: absolute;
+  inset-inline: 12px;
+  block-size: 9px;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 10px, transparent 10px 22px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.tool-panel::before {
+  inset-block-start: 10px;
+}
+
+.tool-panel::after {
+  inset-block-end: 10px;
+}
+
+.tool-panel--video .tool-badge {
+  background: var(--teal);
+  transform: rotate(2deg);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 70px;
+  margin-block-end: 22px;
+  padding-block-start: 10px;
+}
+
+.control-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.file-picker {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  min-height: 76px;
+  padding: 14px;
+  border: 2px dashed var(--ink);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.file-picker:hover {
+  transform: translate(-1px, -1px);
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 3px 3px 0 rgba(35, 29, 27, 0.82);
+}
+
+.file-picker input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.file-picker-icon {
+  display: grid;
+  place-items: center;
+  color: var(--coral);
+}
+
+.file-picker-label {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.number-field {
+  display: grid;
+  grid-template-columns: minmax(72px, 0.35fr) minmax(0, 1fr);
+  align-items: center;
+  min-height: 56px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.number-field span {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  border-inline-end: 2px solid var(--ink);
+  background: var(--ochre);
+  font-family: StudioMono, "Courier New", monospace;
+  font-weight: 800;
+}
+
+.number-field input {
+  min-width: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 12px 14px;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.number-field input:focus,
+.file-picker:focus-within,
+.action-button:focus-visible,
+.download-button:focus-visible {
+  outline: 3px solid rgba(18, 111, 114, 0.35);
+  outline-offset: 3px;
+}
+
+.action-button,
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  inline-size: 100%;
+  padding: 13px 18px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  color: var(--paper);
+  background: var(--ink);
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--coral);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+.action-button:hover,
+.download-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 var(--coral);
+}
+
+.action-button:disabled {
+  cursor: wait;
+  filter: grayscale(0.45);
+  opacity: 0.72;
+}
+
+.download-button {
+  margin-block-start: 14px;
+  color: var(--ink);
+  background: var(--ochre);
+  box-shadow: 4px 4px 0 var(--teal-dark);
+}
+
+.progress-wrap {
+  block-size: 13px;
+  margin-block-start: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: block;
+  inline-size: 0%;
+  block-size: 100%;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 8px, transparent 8px 16px),
+    var(--teal);
+  transition: inline-size 240ms ease;
+}
+
+.status-line {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: var(--muted-ink);
+  font-family: StudioMono, "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.status-line.is-error {
+  color: #a12e21;
+  font-weight: 800;
+}
+
+.video-preview {
+  inline-size: 100%;
+  max-block-size: 280px;
+  margin-block-start: 14px;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: #111;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    width: min(100% - 24px, 620px);
+    padding-block-start: 22px;
+  }
+
+  .masthead {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    width: min(100% - 18px, 440px);
+  }
+
+  .masthead {
+    margin-block-end: 18px;
+  }
+
+  .brand-lockup {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tool-panel {
+    padding: 18px;
+    box-shadow: 5px 5px 0 var(--ink), 0 14px 28px var(--shadow);
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .masthead-note {
+    white-space: normal;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
