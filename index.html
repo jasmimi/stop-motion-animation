@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A static browser-based stop motion studio for extracting video frames and compiling frame ZIPs into MP4 animations."
+      content="A static browser-based stop motion studio for extracting frames, printing A4 frame sheets, recovering scanned frames, and compiling MP4 animations."
     />
     <title>Stop Motion Studio</title>
   </head>
@@ -56,6 +56,70 @@
           </div>
           <p id="extract-status" class="status-line" aria-live="polite">Ready</p>
           <a id="frames-download" class="download-button is-hidden" href="#" download="stop-motion-frames.zip">
+            <i data-lucide="download"></i>
+            <span>Download ZIP</span>
+          </a>
+        </article>
+
+        <article class="tool-panel tool-panel--print">
+          <div class="panel-header">
+            <span class="tool-badge"><i data-lucide="printer"></i></span>
+            <div>
+              <p class="panel-kicker">Optional Print</p>
+              <h2 id="print-title">Frames to A4 PDF</h2>
+            </div>
+          </div>
+
+          <form id="print-form" class="control-stack" aria-labelledby="print-title">
+            <label class="file-picker" for="print-zip-input">
+              <input id="print-zip-input" type="file" accept=".zip,application/zip,application/x-zip-compressed" />
+              <span class="file-picker-icon"><i data-lucide="file-archive"></i></span>
+              <span id="print-zip-file-name" class="file-picker-label">Choose frame ZIP</span>
+            </label>
+
+            <button id="print-submit" class="action-button" type="submit">
+              <i data-lucide="file-text"></i>
+              <span>Create A4 PDF</span>
+            </button>
+          </form>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <span id="print-progress" class="progress-bar"></span>
+          </div>
+          <p id="print-status" class="status-line" aria-live="polite">Ready</p>
+          <a id="pdf-download" class="download-button is-hidden" href="#" download="stop-motion-a4-frames.pdf">
+            <i data-lucide="download"></i>
+            <span>Download PDF</span>
+          </a>
+        </article>
+
+        <article class="tool-panel tool-panel--scan">
+          <div class="panel-header">
+            <span class="tool-badge"><i data-lucide="scan-line"></i></span>
+            <div>
+              <p class="panel-kicker">Optional Scan</p>
+              <h2 id="scan-title">Scanned PDF to Frames</h2>
+            </div>
+          </div>
+
+          <form id="scan-form" class="control-stack" aria-labelledby="scan-title">
+            <label class="file-picker" for="scan-pdf-input">
+              <input id="scan-pdf-input" type="file" accept=".pdf,application/pdf" />
+              <span class="file-picker-icon"><i data-lucide="file-scan"></i></span>
+              <span id="scan-pdf-file-name" class="file-picker-label">Choose scanned PDF</span>
+            </label>
+
+            <button id="scan-submit" class="action-button" type="submit">
+              <i data-lucide="images"></i>
+              <span>Recover Frames</span>
+            </button>
+          </form>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <span id="scan-progress" class="progress-bar"></span>
+          </div>
+          <p id="scan-status" class="status-line" aria-live="polite">Ready</p>
+          <a id="scan-download" class="download-button is-hidden" href="#" download="stop-motion-scanned-frames.zip">
             <i data-lucide="download"></i>
             <span>Download ZIP</span>
           </a>
