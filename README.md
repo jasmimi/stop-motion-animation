@@ -1,6 +1,6 @@
 # Stop Motion Studio
 
-A simple static website for making stop motion assets in the browser.
+A simple static website for making stop-motion assets in the browser.
 
 ## Features
 
