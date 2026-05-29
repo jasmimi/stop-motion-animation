@@ -101,6 +101,19 @@ a {
   transform: rotate(-2deg);
 }
 
+.brand-mark--app-icon {
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.brand-mark--app-icon img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
 .brand-mark svg,
 .tool-badge svg,
 .action-button svg,

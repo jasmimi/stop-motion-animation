@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Stop Motion Studio icon">
+  <defs>
+    <clipPath id="iconClip">
+      <rect x="22" y="22" width="212" height="212" rx="26" />
+    </clipPath>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M2 1h2v2H2zM8 7h2v2H8z" fill="#211b1a" opacity=".08" />
+    </pattern>
+  </defs>
+  <rect x="22" y="22" width="212" height="212" rx="26" fill="#fff5df" />
+  <g clip-path="url(#iconClip)">
+    <rect x="22" y="22" width="212" height="212" fill="#fff5df" />
+    <path d="M22 72h212v164H22z" fill="#126f72" />
+    <path d="M22 22h212v60H22z" fill="#d95b43" />
+    <path d="M42 22h26L40 82H14zM94 22h26L92 82H66zM146 22h26l-28 60h-26zM198 22h26l-28 60h-26z" fill="#fff5df" opacity=".92" />
+    <path d="M54 108h148v86H54z" fill="#fff5df" />
+    <path d="M54 108h148v86H54z" fill="none" stroke="#211b1a" stroke-width="10" />
+    <path d="M112 126l52 25-52 25z" fill="#d79f36" stroke="#211b1a" stroke-linejoin="round" stroke-width="8" />
+    <path d="M42 106v-18M42 214v-18M214 106v-18M214 214v-18M42 88h18M42 214h18M214 88h-18M214 214h-18" fill="none" stroke="#211b1a" stroke-linecap="square" stroke-width="7" />
+    <path d="M22 72h212" stroke="#211b1a" stroke-width="10" />
+    <path d="M44 132h18M44 170h18M194 132h18M194 170h18" stroke="#211b1a" stroke-linecap="round" stroke-width="8" />
+    <rect x="22" y="22" width="212" height="212" fill="url(#grain)" />
+  </g>
+  <rect x="22" y="22" width="212" height="212" rx="26" fill="none" stroke="#211b1a" stroke-width="12" />
+</svg>

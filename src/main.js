@@ -6,7 +6,6 @@ import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import pdfWorkerUrl from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url';
 import {
   createIcons,
-  Clapperboard,
   Download,
   FileArchive,
   FileScan,
@@ -88,7 +87,6 @@ const ui = {
 
 createIcons({
   icons: {
-    Clapperboard,
     Download,
     FileArchive,
     FileScan,
